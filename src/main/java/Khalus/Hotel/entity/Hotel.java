@@ -1,21 +1,26 @@
 package Khalus.Hotel.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "hotel")
 public class Hotel {
     @Id
-    private int id;
+    private Long id;
 
     private String name;
     private int stars;
     private String country;
     private String city;
-    private String excursion;
     @OneToMany(mappedBy="hotel")
     private Set<Trip> trips;
     @ManyToOne

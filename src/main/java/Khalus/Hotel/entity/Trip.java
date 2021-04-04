@@ -1,6 +1,9 @@
 package Khalus.Hotel.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,10 +11,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "trip")
 public class Trip {
     @Id
-    private int id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name="hotel_id")

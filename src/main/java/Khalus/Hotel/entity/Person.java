@@ -1,6 +1,9 @@
 package Khalus.Hotel.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,10 +11,13 @@ import javax.persistence.OneToMany;
 import java.util.Set;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity(name = "person")
 public class Person {
     @Id
-    private int id;
+    private Long id;
 
     private String passport_number;
     private String first_name;
@@ -20,4 +26,5 @@ public class Person {
     private String address;
     @OneToMany(mappedBy="person")
     private Set<Trip> trips;
+
 }
